@@ -5,6 +5,8 @@ import java.net.URLEncoder;
 
 import javax.management.MBeanAttributeInfo;
 
+import com.github.bawey.mbapilite.exceptions.MusicBrainzException;
+
 public class QueryTools {
 	public static final String[] RECORDING_KEYS = { "artist", "alias", "recording", "release", "arid" };
 	public static final String[] ARTIST_KEYS = { "artist", "alias" };

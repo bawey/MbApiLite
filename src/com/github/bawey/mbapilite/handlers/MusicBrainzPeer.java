@@ -8,7 +8,9 @@ import org.w3c.dom.NodeList;
 import us.monoid.web.Resty;
 import us.monoid.web.XMLResource;
 
+import com.github.bawey.mbapilite.exceptions.MusicBrainzException;
 import com.github.bawey.mbapilite.meta.Recording;
+import com.github.bawey.mbapilite.tools.XmlKit;
 
 public class MusicBrainzPeer {
 	private static MusicBrainzPeer instance;
@@ -75,7 +77,7 @@ public class MusicBrainzPeer {
 						NodeList nodeList2 = attrNode.getChildNodes();
 						Node artistNode = null;
 						for (int artistNo = 0; artistNo < nodeList2.getLength(); ++artistNo) {
-							artistNode = nodeList2.item(artistNo).getFirstChild();
+							artistNode = XmlKit.getChild("artist", nodeList2.item(artistNo));
 							debug("artistId: " + artistNode.getAttributes().getNamedItem("id"));
 							debug("artistName: " + artistNode.getFirstChild().getFirstChild().getNodeValue());
 						}
